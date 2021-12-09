@@ -23,8 +23,8 @@ delta_light = ymax1-ymin1;      % delta between max and min value for light cond
 delta_nolight = ymax2-ymin2;    % delta between max and min value for no light condition
 delta_delta = delta_light-delta_nolight;     % delta between deltas (so difference of flux between conditions)
 
-cell_delta_light = table2cell(table(delta_light));
-cell_delta_nolight = table2cell(table(delta_nolight));
+%cell_delta_light = table2cell(table(delta_light));
+%cell_delta_nolight = table2cell(table(delta_nolight));
 cell_delta = table2cell(table(delta_delta));
 
 figure
