@@ -30,8 +30,11 @@ model_2 = changeObjective(model_2,'R351',1);        % Biomass equation
 model_plot = model_2;
 v = [];
 
+model_plot = changeRxnBounds(model_plot, 'R205',0.27,'b');
+model_plot = changeRxnBounds(model_plot, 'R372',0,'b');
+
 for i=0:0.2:7
-    model_plot = changeRxnBounds(model_plot, 'R203',i,'u'); % Photon influx
+    model_plot = changeRxnBounds(model_plot, 'R203',i,'b'); % Photon influx
     for j=0:0.45/35:0.45
         model_plot = changeRxnBounds(model_plot, 'R344',j,'b'); % Hydrogenocarbonate
         w = optimizeCbModel(model_plot,'max');
@@ -65,17 +68,17 @@ set(yh, 'Position',pos.*[0.9,-0.6,1],'Rotation',-26);
 %%%%%% parameters (with photosynthesis/light)
 
 model_2_photo = model_2;
-model_2_photo = changeRxnBounds(model_2_photo, 'R203',1309.8,'u');  % Photon influx
-model_2_photo = changeRxnBounds(model_2_photo, 'R205',50.49,'u');   % ATP consumption
-model_2_photo = changeRxnBounds(model_2_photo, 'R372',0,'u');       % urea uptake
+model_2_photo = changeRxnBounds(model_2_photo, 'R203',1309.8,'b');  % Photon influx
+model_2_photo = changeRxnBounds(model_2_photo, 'R205',50.49,'b');   % ATP consumption
+model_2_photo = changeRxnBounds(model_2_photo, 'R372',0,'b');       % urea uptake
 
 FBA_solution_photo = optimizeCbModel(model_2_photo,'max');
 
 %%%%%% parameters (without photosynthesis/light)
 
 model_2_no_photo = model_2;
-model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R203',7,'u');     % Photon influx
-model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R205',0.27,'u');  % ATP consumption
-model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R372',0,'u');     % urea uptake
+model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R203',7,'b');     % Photon influx
+model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R205',0.27,'b');  % ATP consumption
+model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R372',0,'b');     % urea uptake
 
 FBA_solution_no_photo = optimizeCbModel(model_2_no_photo,'max');
