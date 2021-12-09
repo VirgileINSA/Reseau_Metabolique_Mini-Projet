@@ -68,7 +68,7 @@ set(yh, 'Position',pos.*[0.9,-0.6,1],'Rotation',-26);
 %%%%%% parameters (with photosynthesis/light)
 
 model_2_photo = model_2;
-model_2_photo = changeRxnBounds(model_2_photo, 'R203',1309.8,'b');  % Photon influx
+model_2_photo = changeRxnBounds(model_2_photo, 'R203',1308.9,'b');  % Photon influx
 model_2_photo = changeRxnBounds(model_2_photo, 'R205',50.49,'b');   % ATP consumption
 model_2_photo = changeRxnBounds(model_2_photo, 'R372',0,'b');       % urea uptake
 
