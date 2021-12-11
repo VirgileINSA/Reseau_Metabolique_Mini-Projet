@@ -15,7 +15,7 @@ For the others Matlab scripts you need to run "mini_project.m" first.
 
 **FVA_plot_deltas.m :** FVA analysis for all the reactions in the model with and without light source.
 
-**figure_delta.png :** Figure from the "FVA_plot_deltas.m" script that compares the flux between light and no-light conditions.
+**figure_max_delta.png :** Figure from the "FVA_plot_deltas.m" script that compares the flux between light and no-light conditions.
 
 **figure_light.png :** Figure from the "FVA_plot_macro.m" script that shows the flux variations for the metabolites used in the biomass reaction with a light source.
 
