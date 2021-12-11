@@ -23,15 +23,21 @@ delta_light = ymax1-ymin1;      % delta between max and min value for light cond
 delta_nolight = ymax2-ymin2;    % delta between max and min value for no light condition
 delta_delta = delta_light-delta_nolight;     % delta between deltas (so difference of flux between conditions)
 
-%cell_delta_light = table2cell(table(delta_light));
-%cell_delta_nolight = table2cell(table(delta_nolight));
+delta_max = ymax2-ymax1;    % delta between no light and light maximum flux of each reaction
+delta_min = ymin2-ymin1;    % delta between no light and light maximum flux of each reaction
+
+cell_delta_light = table2cell(table(delta_light));
+cell_delta_nolight = table2cell(table(delta_nolight));
 cell_delta = table2cell(table(delta_delta));
 
+cell_max = table2cell(table(delta_max));
+cell_min = table2cell(table(delta_min));
+
 figure
-plot = bar(cell2mat(cell_delta));
-set(gca, 'XTickLabelRotation', -80);
-yticks(-200:20:100)
+cell_max(264)={[0]};        % The reaction at index 264 is the uptake of photon hich we defined ourselves so we don't take it into account
+plot = bar(cell2mat(cell_max));
+yticks(-200:100:200)
 xlabel('Reactions from the models')
-ylabel('Difference of fluxes')
+ylabel('Fluxes max')
 legend('Flux difference', 'Location', 'southwest')
-title('Variations in reactions fluxes in the presence or absence of light')
+title('Differences in variations of reactions fluxes')
