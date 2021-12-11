@@ -7,6 +7,7 @@ initCobraToolbox
 
 model_2 = readCbModel('Supplemental_Data7.xml');
 model_2 = changeObjective(model_2,'R351',1);        % Biomass equation
+printRxnFormula(model_2,'R351');
 
 
 %% Biomass and other important equations %%
@@ -73,6 +74,7 @@ model_2_photo = changeRxnBounds(model_2_photo, 'R205',50.49,'b');   % ATP consum
 model_2_photo = changeRxnBounds(model_2_photo, 'R372',0,'b');       % urea uptake
 
 FBA_solution_photo = optimizeCbModel(model_2_photo,'max');
+FBA_solution_photo.f
 
 %%%%%% parameters (without photosynthesis/light)
 
@@ -82,3 +84,4 @@ model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R205',0.27,'b');  % ATP co
 model_2_no_photo = changeRxnBounds(model_2_no_photo, 'R372',0,'b');     % urea uptake
 
 FBA_solution_no_photo = optimizeCbModel(model_2_no_photo,'max');
+FBA_solution_no_photo.f
